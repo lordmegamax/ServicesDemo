@@ -77,6 +77,10 @@ public class MyActivity extends Activity implements View.OnClickListener {
         stopService(new Intent(this, MyForegroundService.class));
     }
 
+    public void startAsyncActivity(View ignored) {
+        startActivity(new Intent(this, AsyncActivity.class));
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

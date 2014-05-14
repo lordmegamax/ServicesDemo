@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".AsyncActivity"/>
+        
         <service
             android:name=".MyExplicitService"
             android:permission="com.lmmx.MY_SERVICE_PERMISSION"/>

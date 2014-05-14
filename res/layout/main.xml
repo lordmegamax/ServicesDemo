@@ -95,5 +95,12 @@
             android:onClick="stopForegroundService"
             android:layout_weight="1"/>
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startAsyncActivity"
+        android:text="Start async activity"
+        />
 </LinearLayout>
 
