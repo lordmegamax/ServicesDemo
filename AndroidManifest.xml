@@ -33,5 +33,6 @@
         </service>
         <service android:name=".MyBinderService"/>
         <service android:name=".MyForegroundService"/>
+        <service android:name=".MyIntentService"/>
     </application>
 </manifest>

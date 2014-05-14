@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 
@@ -29,7 +30,11 @@ public class MyActivity extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.main);
+
+        setProgressBarIndeterminate(true);
+        setProgressBarIndeterminateVisibility(true);
 
         Button bStartExpl = (Button) findViewById(R.id.bStartExpl);
         Button bStartImpl = (Button) findViewById(R.id.bStartImpl);
@@ -79,6 +84,14 @@ public class MyActivity extends Activity implements View.OnClickListener {
 
     public void startAsyncActivity(View ignored) {
         startActivity(new Intent(this, AsyncActivity.class));
+    }
+
+    public void startIntentService(View ignored) {
+        startService(new Intent(this, MyIntentService.class));
+    }
+
+    public void sleepInMainThread(View ignored) throws InterruptedException {
+        Thread.sleep(3*1000);
     }
 
     @Override

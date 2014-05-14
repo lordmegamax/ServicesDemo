@@ -12,17 +12,24 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Explicit:"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Start explicitly"
+            android:text="Start "
             android:id="@+id/bStartExpl"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Stop explicitly"
+            android:text="Stop"
             android:id="@+id/bStopExpl"
             android:layout_weight="1"/>
     </LinearLayout>
@@ -33,17 +40,24 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Implicit: "
+            android:layout_weight="1"
+            android:gravity="center_horizontal"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Start implicitly"
+            android:text="Start "
             android:id="@+id/bStartImpl"
             android:layout_weight="1"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Stop implicitly"
+            android:text="Stop"
             android:id="@+id/bStopImpl"
             android:layout_weight="1"/>
     </LinearLayout>
@@ -53,7 +67,6 @@
         android:layout_height="wrap_content"
         android:text="Stop self"
         android:id="@+id/cbStopSelf"
-        android:layout_gravity="center_horizontal"
         android:checked="false"/>
 
     <LinearLayout
@@ -100,7 +113,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="startAsyncActivity"
-        android:text="Start async activity"
-        />
+        android:text="Start async activity"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start intent service"
+        android:onClick="startIntentService"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sleep in main thread"
+        android:onClick="sleepInMainThread"/>
 </LinearLayout>
 
