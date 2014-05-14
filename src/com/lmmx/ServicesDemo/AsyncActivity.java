@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AsyncActivity extends Activity {
     private ProgressBar pb;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class AsyncActivity extends Activity {
         setContentView(R.layout.activity_async);
 
         pb = (ProgressBar) findViewById(R.id.progressBar);
+        tv = (TextView) findViewById(R.id.tvResult);
     }
 
     public void runAsyncTask(View ignored) {
@@ -64,6 +66,7 @@ public class AsyncActivity extends Activity {
             // Synchronized to UI thread.
             // Report results via UI update, Dialog, or notifications
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+            tv.setText(result);
         }
     }
 }
