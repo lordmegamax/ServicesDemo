@@ -69,6 +69,14 @@ public class MyActivity extends Activity implements View.OnClickListener {
         stopService(new Intent(MyImplicitService.SOME_ACTION));
     }
 
+    public void startForegroundService(View ignored) {
+        startService(new Intent(this, MyForegroundService.class));
+    }
+
+    public void stopForegroundService(View ignored) {
+        stopService(new Intent(this, MyForegroundService.class));
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

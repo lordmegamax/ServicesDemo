@@ -30,5 +30,6 @@
             </intent-filter>
         </service>
         <service android:name=".MyBinderService"/>
+        <service android:name=".MyForegroundService"/>
     </application>
 </manifest>
