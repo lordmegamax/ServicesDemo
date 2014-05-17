@@ -91,7 +91,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
     }
 
     public void sleepInMainThread(View ignored) throws InterruptedException {
-        Thread.sleep(3*1000);
+        Thread.sleep(10*1000);
     }
 
     @Override
