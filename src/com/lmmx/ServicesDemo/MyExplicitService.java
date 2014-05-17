@@ -20,10 +20,18 @@ public class MyExplicitService extends Service {
         Log.d(TAG, "onStartCommand");
         startBackgroundTask(intent, startId);
 
+        Log.d(TAG, this.toString());
+
         // START_FLAG_RETRY
         // START_FLAG_REDELIVERY
 
         return Service.START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
     }
 
     private void startBackgroundTask(Intent intent, int startId) {

@@ -67,6 +67,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(MyImplicitService.SOME_ACTION);
         intent.putExtra(MyImplicitService.SOME_STUFF_EXTRA, "stuff_string");
         intent.putExtra(MyImplicitService.IS_STOP_SELF_EXTRA, cbStopSelf.isChecked());
+
         startService(intent);
     }
 
