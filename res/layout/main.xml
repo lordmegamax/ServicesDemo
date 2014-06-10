@@ -1,129 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:padding="15dp"
-    >
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:padding="15dp">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Explicit:"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Explicit:"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Start "
+                android:id="@+id/bStartExpl"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Stop"
+                android:id="@+id/bStopExpl"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Implicit: "
+                android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Start "
+                android:id="@+id/bStartImpl"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Stop"
+                android:id="@+id/bStopImpl"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop self"
+            android:id="@+id/cbStopSelf"
+            android:checked="false"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Bind service"
+                android:id="@+id/bBindService"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Unbind service"
+                android:id="@+id/bUnbindService"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Start Foreground service"
+                android:onClick="startForegroundService"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Stop Foreground service"
+                android:onClick="stopForegroundService"
+                android:layout_weight="1"/>
+        </LinearLayout>
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start "
-            android:id="@+id/bStartExpl"
-            android:layout_weight="1"/>
+            android:onClick="startAsyncActivity"
+            android:text="Start async activity"/>
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Stop"
-            android:id="@+id/bStopExpl"
-            android:layout_weight="1"/>
+            android:text="Start intent service"
+            android:onClick="startIntentService"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sleep in main thread"
+            android:onClick="sleepInMainThread"/>
+
+        <Button
+            android:onClick="openMessengerActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open messenger activity"
+            android:id="@+id/bMessengerActivity"/>
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Implicit: "
-            android:layout_weight="1"
-            android:gravity="center_horizontal"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Start "
-            android:id="@+id/bStartImpl"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Stop"
-            android:id="@+id/bStopImpl"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop self"
-        android:id="@+id/cbStopSelf"
-        android:checked="false"/>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Bind service"
-            android:id="@+id/bBindService"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Unbind service"
-            android:id="@+id/bUnbindService"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Start Foreground service"
-            android:onClick="startForegroundService"
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Stop Foreground service"
-            android:onClick="stopForegroundService"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="startAsyncActivity"
-        android:text="Start async activity"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start intent service"
-        android:onClick="startIntentService"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sleep in main thread"
-        android:onClick="sleepInMainThread"/>
-</LinearLayout>
-
+</ScrollView>

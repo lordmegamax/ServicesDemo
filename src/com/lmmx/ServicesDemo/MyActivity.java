@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
+import com.lmmx.ServicesDemo.messenger.MessengerActivity;
 
 public class MyActivity extends Activity implements View.OnClickListener {
     private CheckBox cbStopSelf;
@@ -92,6 +93,10 @@ public class MyActivity extends Activity implements View.OnClickListener {
 
     public void sleepInMainThread(View ignored) throws InterruptedException {
         Thread.sleep(3*1000);
+    }
+
+    public void openMessengerActivity(View ignored) {
+        startActivity(new Intent(this, MessengerActivity.class));
     }
 
     @Override

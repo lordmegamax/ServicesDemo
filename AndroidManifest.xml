@@ -21,7 +21,8 @@
         </activity>
 
         <activity android:name=".AsyncActivity"/>
-        
+        <activity android:name=".messenger.MessengerActivity"/>
+
         <service
             android:name=".MyExplicitService"
             android:permission="com.lmmx.MY_SERVICE_PERMISSION"/>
@@ -34,5 +35,6 @@
         <service android:name=".MyBinderService"/>
         <service android:name=".MyForegroundService"/>
         <service android:name=".MyIntentService"/>
+        <service android:name=".messenger.MessengerService"/>
     </application>
 </manifest>
