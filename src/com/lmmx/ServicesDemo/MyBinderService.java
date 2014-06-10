@@ -11,11 +11,17 @@ public class MyBinderService extends Service {
     public final String TAG = getClass().getSimpleName();
 
     private final IBinder binder = new MyBinder();
+
     public class MyBinder extends Binder {
         MyBinderService getService() {
             return MyBinderService.this;
         }
     }
+
+    interface MyInterface {
+        public String getMyString(String s);
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "onBind");
@@ -27,5 +33,10 @@ public class MyBinderService extends Service {
         Log.d(TAG, "onStartCommand");
 
         return Service.START_STICKY;
+    }
+
+    public void doSomething(MyInterface myInterface ) {
+        String s = " Hello world ";
+        myInterface.getMyString(s);
     }
 }

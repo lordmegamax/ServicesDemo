@@ -2,6 +2,7 @@ package com.lmmx.ServicesDemo;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
@@ -23,12 +24,12 @@ public class MyForegroundService extends Service {
 
         Notification.Builder builder = new Notification.Builder(this);
         builder.setContentIntent(pendingIntent)
-                .setSmallIcon(android.R.drawable.ic_menu_info_details)
-                .setContentTitle("Service is running in foreground...")
-                .setTicker("Wow! It's working!")
-                .setWhen(System.currentTimeMillis())
-                .setSubText("Why are you so serious?")
-                .setOngoing(true);
+               .setSmallIcon(android.R.drawable.ic_menu_info_details)
+               .setContentTitle("Service is running in foreground...")
+               .setTicker("Wow! It's working!")
+               .setWhen(System.currentTimeMillis())
+               .setSubText("Why are you so serious?")
+               .setOngoing(false/*true*/);
 
         Notification notification;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
@@ -39,10 +40,18 @@ public class MyForegroundService extends Service {
         }
 
         startForeground(NOTIFICATION_ID, notification);
+        // Doing something...
+
+        /*stopForeground(true);
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        builder.setTicker("You can cancel this notification");
+        builder.setOngoing(false);
+
+        notification = builder.build();
+
+        nm.notify(123, notification);*/
 
         return START_STICKY;
-
-        // stopForeground(true);
     }
 
     @Override

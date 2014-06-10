@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import com.lmmx.ServicesDemo.messenger.MessengerActivity;
+import android.widget.Toast;
 
 public class MyActivity extends Activity implements View.OnClickListener {
     private CheckBox cbStopSelf;
@@ -18,8 +19,17 @@ public class MyActivity extends Activity implements View.OnClickListener {
     private MyBinderService serviceRef;
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            serviceRef = ((MyBinderService.MyBinder) service).getService();
+        public void onServiceConnected(ComponentName name, IBinder binder) {
+            serviceRef = ((MyBinderService.MyBinder) binder).getService();
+
+            serviceRef.doSomething(new MyBinderService.MyInterface() {
+                @Override
+                public String getMyString(String s) {
+                    Toast.makeText(getApplicationContext(), "String is: " + s, Toast.LENGTH_SHORT).show();
+
+                    return null;
+                }
+            });
         }
 
         @Override
@@ -68,6 +78,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(MyImplicitService.SOME_ACTION);
         intent.putExtra(MyImplicitService.SOME_STUFF_EXTRA, "stuff_string");
         intent.putExtra(MyImplicitService.IS_STOP_SELF_EXTRA, cbStopSelf.isChecked());
+
         startService(intent);
     }
 
@@ -119,7 +130,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
                 bindService(binderIntent, serviceConnection, BIND_AUTO_CREATE);
                 break;
             case R.id.bUnbindService:
-
+                unbindService(serviceConnection);
                 break;
             default:
                 break;
